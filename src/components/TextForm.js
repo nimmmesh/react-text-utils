@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 const TextForm = (props) => {
-  const [text, setText] = useState("Enter text here...");
+  const [text, setText] = useState();
 
   const onButtonClick = (action) => {
     switch (action) {
@@ -41,6 +41,19 @@ const TextForm = (props) => {
         >
           Convert to Upper Case
         </button>
+      </div>
+      <div className="container my-3">
+        <h1>Your text summary:</h1>
+        <p>
+          {text ? text.split(" ").length : 0} words and {text ? text.length : 0}{" "}
+          characters
+        </p>
+        <p>
+          Your approximated read time is{" "}
+          {text ? 0.008 * text.split(" ").length : 0}
+        </p>
+        <h3>Text preview:</h3>
+        <p>{text}</p>
       </div>
     </>
   );
