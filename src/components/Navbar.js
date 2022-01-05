@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 const Navbar = (props) => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav
+        className={`navbar navbar-expand-lg navbar-${
+          props.darkMode ? "dark" : "light"
+        } bg-${props.darkMode ? "dark" : "light"}`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -44,6 +48,25 @@ const Navbar = (props) => {
                 Search
               </button>
             </form>
+            <div
+              className={`form-check form-switch mx-2 ${
+                props.darkMode ? "text-light" : "text-dark"
+              }`}
+            >
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onClick={props.setisDarkModeEnabled}
+              />
+              <label
+                className="form-check-label d-block"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                {`Enable ${props.darkMode ? "Light" : "Dark"} Mode`}
+              </label>
+            </div>
           </div>
         </div>
       </nav>
@@ -53,10 +76,13 @@ const Navbar = (props) => {
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
+  darkMode: PropTypes.bool.isRequired,
+  setisDarkModeEnabled: PropTypes.func.isRequired,
 };
 
 Navbar.defaultProps = {
   title: "Text Utils",
+  darkMode: false,
 };
 
 export default Navbar;
