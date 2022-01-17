@@ -52,7 +52,7 @@ function App() {
         <Alert alert={alert} />
         <Switch>
           <Route exact path="/about">
-            <About />
+            <About darkMode={isDarkModeEnabled} />
           </Route>
           <Route exact path="/">
             <TextForm

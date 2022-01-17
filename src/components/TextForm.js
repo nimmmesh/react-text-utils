@@ -47,6 +47,7 @@ const TextForm = (props) => {
         </div>
         <button
           className="btn btn-primary"
+          disabled={!text || text.length === 0}
           onClick={() => {
             onButtonClick("uppercase");
           }}
@@ -59,12 +60,21 @@ const TextForm = (props) => {
       >
         <h1>Your text summary:</h1>
         <p>
-          {text ? text.split(" ").length : 0} words and {text ? text.length : 0}{" "}
-          characters
+          {text
+            ? text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length
+            : 0}{" "}
+          words and {text ? text.trim().length : 0} characters
         </p>
         <p>
           Your approximated read time is{" "}
-          {text ? 0.008 * text.split(" ").length : 0}
+          {text
+            ? 0.008 *
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length
+            : 0}
         </p>
         <h3>Text preview:</h3>
         <p>

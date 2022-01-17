@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-const About = () => {
-  const [styleObj, setstyleObj] = useState({
-    backgroundColor: "black",
-    color: "white",
-  });
+const About = (props) => {
+  let styleObj = {
+    backgroundColor: props.darkMode ? "black" : "white",
+    color: props.darkMode ? "white" : "black",
+  };
   return (
     <>
       <div className="container my-3" style={styleObj}>
@@ -109,26 +109,6 @@ const About = () => {
             </div>
           </div>
         </div>
-        <button
-          onClick={() => {
-            if (styleObj.color === "white") {
-              setstyleObj({
-                color: "black",
-                backgroundColor: "white",
-              });
-            } else {
-              setstyleObj({
-                color: "white",
-                backgroundColor: "black",
-              });
-            }
-          }}
-          className="btn btn-primary my-3"
-        >
-          {styleObj.color === "white"
-            ? "Enable light mode"
-            : "Enable dark mode"}
-        </button>
       </div>
     </>
   );
