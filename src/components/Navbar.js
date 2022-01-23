@@ -38,17 +38,36 @@ const Navbar = (props) => {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <div className="d-flex">
+              <div
+                className="bg-primary rounded mx-2"
+                onClick={() => {
+                  props.setisDarkModeEnabled("primary");
+                }}
+                style={{ height: "20px", width: "20px", cursor: "pointer" }}
+              ></div>
+              <div
+                className="bg-success rounded mx-2"
+                onClick={() => {
+                  props.setisDarkModeEnabled("success");
+                }}
+                style={{ height: "20px", width: "20px", cursor: "pointer" }}
+              ></div>
+              <div
+                className="bg-warning rounded mx-2"
+                onClick={() => {
+                  props.setisDarkModeEnabled("warning");
+                }}
+                style={{ height: "20px", width: "20px", cursor: "pointer" }}
+              ></div>
+              <div
+                className="bg-danger rounded mx-2"
+                onClick={() => {
+                  props.setisDarkModeEnabled("danger");
+                }}
+                style={{ height: "20px", width: "20px", cursor: "pointer" }}
+              ></div>
+            </div>
             <div
               className={`form-check form-switch mx-2 ${
                 props.darkMode ? "text-light" : "text-dark"

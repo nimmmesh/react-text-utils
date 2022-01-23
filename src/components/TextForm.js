@@ -61,7 +61,7 @@ const TextForm = (props) => {
         <h1>Your text summary:</h1>
         <p>
           {text
-            ? text.split(" ").filter((element) => {
+            ? text.split(/\s+/).filter((element) => {
                 return element.length !== 0;
               }).length
             : 0}{" "}
@@ -71,7 +71,7 @@ const TextForm = (props) => {
           Your approximated read time is{" "}
           {text
             ? 0.008 *
-              text.split(" ").filter((element) => {
+              text.split(/\s+/).filter((element) => {
                 return element.length !== 0;
               }).length
             : 0}
